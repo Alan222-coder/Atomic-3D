@@ -19,7 +19,8 @@ def display():
     glClear(GL_COLOR_BUFFER_BIT)
     
     glColor3f(0.0, 0.0, 1.0)  # Color rojo
-    draw_circle(0.0, 0.0, 0.5)
+    draw_circle(0.2, 0.1, 0.2)
+    draw_circle(0.4, 0.4, 0.2)
 
     glFlush()
 
@@ -29,14 +30,15 @@ def init():
     glLoadIdentity()
     gluOrtho2D(-1, 1, -1, 1)
 
-def main():
+def crearventana():
     glutInit()
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB)
     glutInitWindowSize(500, 500)
-    
     # ✅ Arreglo: codificar a UTF-8
     glutCreateWindow("Círculo en PyOpenGL".encode("utf-8"))
 
+def main():
+    crearventana()
     init()
     glutDisplayFunc(display)
     glutMainLoop()
