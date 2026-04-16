@@ -3,6 +3,8 @@ from OpenGL.GLUT import *
 from OpenGL.GLU import *
 import math
 
+# test 1
+
 def draw_circle(x, y, radius, segments=100): # Funcion de circulo, no borrar
 
     glBegin(GL_TRIANGLE_FAN)
