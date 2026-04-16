@@ -3,9 +3,10 @@ from OpenGL.GLUT import *
 from OpenGL.GLU import *
 import math
 
-def draw_circle(x, y, radius, segments=100):
+def draw_circle(x, y, radius, segments=100): # Funcion de circulo, no borrar
+
     glBegin(GL_TRIANGLE_FAN)
-    glVertex2f(x, y)  # Centro del círculo
+    glVertex2f(x, y) 
     for i in range(segments + 1):
         angle = 2 * math.pi * i / segments
         dx = radius * math.cos(angle)
@@ -13,10 +14,11 @@ def draw_circle(x, y, radius, segments=100):
         glVertex2f(x + dx, y + dy)
     glEnd()
 
+
 def display():
     glClear(GL_COLOR_BUFFER_BIT)
     
-    glColor3f(1.0, 0.0, 0.0)  # Color rojo
+    glColor3f(0.0, 0.0, 1.0)  # Color rojo
     draw_circle(0.0, 0.0, 0.5)
 
     glFlush()
