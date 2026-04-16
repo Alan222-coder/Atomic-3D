@@ -3,7 +3,14 @@ from OpenGL.GLUT import *
 from OpenGL.GLU import *
 import math
 
-# test 1
+# Test OpenGl
+# Lista Circulos: azul, el tamaño, x, y
+
+circulos = [
+    (1.0, 0.5, 0.0, 0.0),  # Color azul, tamaño 0.5, posición (0.0, 0.0)
+    (1.0, 0.2, -0.5, -0.5), # Color azul, tamaño 0.2, posición (-0.5, -0.5)
+    (1.0, 0.2, 0.5, -0.5)   # Color azul, tamaño 0.2, posición (0.5, -0.5)
+]
 
 def draw_circle(x, y, radius, segments=100): # Funcion de circulo, no borrar
 
@@ -19,15 +26,13 @@ def draw_circle(x, y, radius, segments=100): # Funcion de circulo, no borrar
 
 def display():
     glClear(GL_COLOR_BUFFER_BIT)
-    
-    glColor3f(0.0, 0.0, 1.0)  # Color rojo
-    draw_circle(0.2, 0.1, 0.2)
-    draw_circle(0.4, 0.4, 0.2)
-
+    for Color, tamaño, x, y in circulos:
+        glColor3f(0.0, 0.0, Color)
+        draw_circle(x, y, tamaño)
     glFlush()
 
 def init():
-    glClearColor(0.0, 0.0, 0.0, 1.0)  # Fondo negro
+    glClearColor(0.0, 0.0, 0.0, 1.0)
     glMatrixMode(GL_PROJECTION)
     glLoadIdentity()
     gluOrtho2D(-1, 1, -1, 1)
@@ -36,7 +41,6 @@ def crearventana():
     glutInit()
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB)
     glutInitWindowSize(500, 500)
-    # ✅ Arreglo: codificar a UTF-8
     glutCreateWindow("Círculo en PyOpenGL".encode("utf-8"))
 
 def main():
